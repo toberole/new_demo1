@@ -18,7 +18,7 @@ class LaunchActivity : AppCompatActivity(), View.OnClickListener {
     override fun onClick(v: View?) {
         when (v?.id) {
             R.id.btn_test1 -> {
-                var i = Intent(this@LaunchActivity, MainActivity.javaClass)
+                var i = Intent(this@LaunchActivity, MainActivity::class.java)
                 startActivity(i)
             }
         }
