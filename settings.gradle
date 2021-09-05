@@ -1,2 +1,4 @@
 include ':app'
 rootProject.name = "new_demo1"
+include ':rxjava_demo'
+include ':retrofit_demo'
