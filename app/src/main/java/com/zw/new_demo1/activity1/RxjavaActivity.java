@@ -19,16 +19,11 @@ import io.reactivex.rxjava3.annotations.NonNull;
 import io.reactivex.rxjava3.core.Observable;
 import io.reactivex.rxjava3.core.ObservableEmitter;
 import io.reactivex.rxjava3.core.ObservableOnSubscribe;
-import io.reactivex.rxjava3.core.ObservableSource;
 import io.reactivex.rxjava3.core.Observer;
-import io.reactivex.rxjava3.core.Scheduler;
 import io.reactivex.rxjava3.disposables.Disposable;
 import io.reactivex.rxjava3.functions.Consumer;
 import io.reactivex.rxjava3.functions.Function;
-import io.reactivex.rxjava3.functions.Function4;
-import io.reactivex.rxjava3.functions.Predicate;
 import io.reactivex.rxjava3.internal.schedulers.IoScheduler;
-import kotlin.jvm.functions.Function1;
 
 /**
  * RxJava 的观察者模式
@@ -128,7 +123,8 @@ public class RxjavaActivity extends AppCompatActivity implements View.OnClickLis
         };
 
         /**
-         * 除了 Observer 接口之外，RxJava 还内置了一个实现了 Observer 的抽象类：Subscriber。
+         * 除了 Observer 接口之外
+         * RxJava 还内置了一个实现了 Observer 的抽象类：Subscriber。
          * Subscriber 对 Observer 接口进行了一些扩展，但他们的基本使用方式是完全一样的：
          */
         Subscriber<String> subscriber = new Subscriber<String>() {
