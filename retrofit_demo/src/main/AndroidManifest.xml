@@ -3,6 +3,7 @@
     package="com.zw.rxjava_demo">
 
     <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -11,6 +12,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.New_demo1">
+        <service
+            android:process="com.test.xxx"
+            android:name="com.zw.retrofit_demo.service.MyService"
+            android:enabled="true"
+            android:exported="true"/>
+
         <activity android:name="com.zw.retrofit_demo.activity.LaunchActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

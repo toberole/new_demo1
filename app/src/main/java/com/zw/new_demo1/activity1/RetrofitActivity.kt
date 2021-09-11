@@ -115,6 +115,8 @@ class RetrofitActivity : AppCompatActivity(), View.OnClickListener {
                 }
             })
         }
+
+
     }
 
     private fun testx(){
