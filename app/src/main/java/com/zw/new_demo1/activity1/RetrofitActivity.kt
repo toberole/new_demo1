@@ -1,12 +1,12 @@
 package com.zw.new_demo1.activity1
 
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Toast
 import com.zw.new_demo1.R
-import com.zw.new_demo1.net.MyRetrofitFactory
 import com.zw.new_demo1.net.Student
 import com.zw.new_demo1.net.StudentAPI
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
@@ -115,5 +115,12 @@ class RetrofitActivity : AppCompatActivity(), View.OnClickListener {
                 }
             })
         }
+
+
+    }
+
+    private fun testx(){
+//        var ctx:Context? = null
+//        ctx？.startInstrumentation()
     }
 }

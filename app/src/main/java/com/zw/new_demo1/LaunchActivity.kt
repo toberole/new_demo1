@@ -4,16 +4,20 @@ import android.Manifest
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.core.app.ActivityCompat
 import com.zw.new_demo1.activity1.RetrofitActivity
 import com.zw.new_demo1.activity1.RxjavaActivity
 import com.zw.new_demo1.activity1.ServiceActivity
 import kotlinx.android.synthetic.main.activity_launch.*
+import java.util.ArrayList
 
 class LaunchActivity : AppCompatActivity(), View.OnClickListener {
     private var PS = arrayOf<String>(
-        Manifest.permission.INTERNET
+        Manifest.permission.INTERNET,
+        Manifest.permission.READ_EXTERNAL_STORAGE,
+        Manifest.permission.WRITE_EXTERNAL_STORAGE
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,6 +28,7 @@ class LaunchActivity : AppCompatActivity(), View.OnClickListener {
         btn_RxjavaActivity.setOnClickListener(this)
         btn_ServiceActivity.setOnClickListener(this)
 
+        testlogFiles()
 
     }
 
@@ -41,7 +46,14 @@ class LaunchActivity : AppCompatActivity(), View.OnClickListener {
                 var i = Intent(this@LaunchActivity, ServiceActivity::class.java)
                 startActivity(i)
             }
+        }
+    }
 
+    private fun testlogFiles() {
+        var list = ArrayList<String>()
+        com.zw.new_demo1.util.FileUtil.logFiles("/mnt/sdcard/aaa_test_xxx", list)
+        for (s in list) {
+            Log.i("path-xxx", s)
         }
     }
 }

@@ -1,5 +1,6 @@
 package com.zw.retrofit_demo.activity
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -9,6 +10,8 @@ import com.zw.retrofit_demo.adapter.converter.MyStringConverterFactory
 import com.zw.retrofit_demo.bean.Student
 import com.zw.retrofit_demo.api.StudentApi
 import com.zw.retrofit_demo.adapter.call_adapter.CustomCallAdapterFactory
+import com.zw.retrofit_demo.api.call_adapter.CustomCallAdapterFactory
+import com.zw.retrofit_demo.service.MyService
 import com.zw.rxjava_demo.R
 import kotlinx.android.synthetic.main.activity_launch.*
 import kotlinx.coroutines.Dispatchers
@@ -52,10 +55,15 @@ class Demo1Activity : AppCompatActivity(), View.OnClickListener {
         btn_test1.setOnClickListener(this)
         btn_test2.setOnClickListener(this)
         btn_test3.setOnClickListener(this)
+        btn_service.setOnClickListener(this)
     }
 
     override fun onClick(v: View?) {
         when (v?.id) {
+            R.id.btn_service -> {
+                var i = Intent(this@LaunchActivity, MyService::class.java)
+                startService(i)
+            }
             R.id.btn_test1 -> {
                 var builder = Retrofit.Builder()
                     .baseUrl(base_url)
@@ -67,7 +75,6 @@ class Demo1Activity : AppCompatActivity(), View.OnClickListener {
                     // 针对rxjava2.x
                     .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                     .build()
-
                 var api = builder.create(StudentApi::class.java)
                 var call = api.test1(1, "Hello", 11)
                 call.enqueue(object : Callback<Student> {

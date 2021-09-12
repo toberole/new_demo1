@@ -27,4 +27,11 @@
         android:layout_height="wrap_content"
         android:text="MyCallAdapter"
         android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/btn_service"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="StartService"
+        android:textAllCaps="false" />
 </androidx.appcompat.widget.LinearLayoutCompat>
