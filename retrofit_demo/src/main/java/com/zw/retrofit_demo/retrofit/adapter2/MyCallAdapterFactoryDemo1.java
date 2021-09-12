@@ -1,11 +1,15 @@
-package com.zw.retrofit_demo.retrofit.adapter;
+package com.zw.retrofit_demo.retrofit.adapter2;
 
-import com.zw.retrofit_demo.bean.Student;
+import androidx.annotation.Nullable;
 
+import java.lang.annotation.Annotation;
+import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 
 import retrofit2.Call;
 import retrofit2.CallAdapter;
+import retrofit2.Retrofit;
+
 /*
 public interface CallAdapter<T> {
 
@@ -37,14 +41,29 @@ public interface CallAdapter<T> {
   }
 }
  */
-public class MyCallAdapter implements CallAdapter<Student, String> {
-    @Override
-    public Type responseType() {
-        return null;
+public class MyCallAdapterFactoryDemo1 extends CallAdapter.Factory {
+    private static MyCallAdapterFactoryDemo1 myCallAdapterFactoryDemo1 = new MyCallAdapterFactoryDemo1();
+
+    public static MyCallAdapterFactoryDemo1 create() {
+        return myCallAdapterFactoryDemo1;
     }
 
+    /*
+         CallAdapter
+            Adapts a Call with response type R into the type of T. Instances
+            are created by a factory which is installed into the Retrofit instance.
+     */
+    @Nullable
     @Override
-    public String adapt(Call<Student> call) {
+    // CallAdapter<R, T>
+    public CallAdapter<Call, MyCallDemo1> get(Type returnType, Annotation[] annotations, Retrofit retrofit) {
+        // 获取原始类型
+        Class<?> returnType_rawType = getRawType(returnType);
+        // 返回值必须是CustomCall并且带有泛型
+        if (returnType_rawType == MyCallDemo1.class && returnType instanceof ParameterizedType) {
+            Type callReturnType = getParameterUpperBound(0, (ParameterizedType) returnType);
+            return new MyCallAdapterDemo1(callReturnType);
+        }
         return null;
     }
 }

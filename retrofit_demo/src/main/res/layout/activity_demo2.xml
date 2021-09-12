@@ -23,24 +23,24 @@
         android:textAllCaps="false" />
 
     <Button
-        android:id="@+id/btn_test2"
+        android:id="@+id/btn_Interceptor"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="test2"
+        android:text="添加Interceptor"
         android:textAllCaps="false" />
 
     <Button
-        android:id="@+id/btn_test3"
+        android:id="@+id/btn_Converter"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="test3"
+        android:text="自定义Converter"
         android:textAllCaps="false" />
 
     <Button
-        android:id="@+id/btn_test4"
+        android:id="@+id/btn_Adapter"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="test4"
+        android:text="Adapter"
         android:textAllCaps="false" />
 
     <Button

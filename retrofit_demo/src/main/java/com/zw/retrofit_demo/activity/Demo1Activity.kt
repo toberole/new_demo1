@@ -7,10 +7,10 @@ import android.util.Log
 import android.view.View
 import androidx.core.app.ActivityCompat
 import com.zw.retrofit_demo.R
-import com.zw.retrofit_demo.retrofit.adapter.converter.MyStringConverterFactory
+import com.zw.retrofit_demo.retrofit.converter.MyStringConverterFactory
 import com.zw.retrofit_demo.bean.Student
 import com.zw.retrofit_demo.retrofit.api.StudentApi
-import com.zw.retrofit_demo.retrofit.adapter.call_adapter.CustomCallAdapterFactory
+import com.zw.retrofit_demo.retrofit.adapter.CustomCallAdapterFactory
 import com.zw.retrofit_demo.service.MyService
 import kotlinx.android.synthetic.main.activity_launch.*
 import kotlinx.coroutines.Dispatchers

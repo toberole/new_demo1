@@ -1,6 +1,6 @@
 package com.zw.retrofit_demo.retrofit.api;
 
-import com.zw.retrofit_demo.retrofit.adapter.call_adapter.CustomCall;
+import com.zw.retrofit_demo.retrofit.adapter.CustomCall;
 import com.zw.retrofit_demo.bean.Student;
 
 import retrofit2.Call;

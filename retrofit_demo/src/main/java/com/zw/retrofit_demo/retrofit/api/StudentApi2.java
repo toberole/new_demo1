@@ -1,5 +1,7 @@
 package com.zw.retrofit_demo.retrofit.api;
 
+import com.zw.retrofit_demo.retrofit.adapter2.MyCallDemo1;
+
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.Field;
@@ -36,4 +38,19 @@ public interface StudentApi2 {
             @Query("age") int age
     );
 
+    @GET("/")
+    Call<String> test2(
+            @Query("id") long id,
+            @Query("name") String name,
+            @Query("age") int age,
+            @Query("age1") int age1
+    );
+
+    @GET("/")
+    MyCallDemo1<String> test3(
+            @Query("id") long id,
+            @Query("name") String name,
+            @Query("age") int age,
+            @Query("age1") int age1
+    );
 }

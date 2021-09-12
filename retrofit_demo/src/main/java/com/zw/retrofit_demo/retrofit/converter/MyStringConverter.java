@@ -1,4 +1,4 @@
-package com.zw.retrofit_demo.retrofit.adapter.converter;
+package com.zw.retrofit_demo.retrofit.converter;
 
 import java.io.IOException;
 
