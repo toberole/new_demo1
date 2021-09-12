@@ -13,10 +13,17 @@
         android:orientation="vertical">
 
         <Button
-            android:id="@+id/btn_LaunchActivity"
+            android:id="@+id/btn_Demo1Activity"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="LaunchActivity"
+            android:text="Demo1Activity"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/btn_Demo2Activity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Demo2Activity"
             android:textAllCaps="false" />
     </androidx.appcompat.widget.LinearLayoutCompat>
 </ScrollView>

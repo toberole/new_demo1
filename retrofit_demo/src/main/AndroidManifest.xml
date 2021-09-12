@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.zw.rxjava_demo">
+    package="com.zw.retrofit_demo">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -13,12 +13,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.New_demo1">
         <service
-            android:process="com.test.xxx"
             android:name="com.zw.retrofit_demo.service.MyService"
             android:enabled="true"
-            android:exported="true"/>
+            android:exported="true"
+            android:process="com.test.xxx" />
 
-        <activity android:name="com.zw.retrofit_demo.activity.LaunchActivity">
+        <activity android:name="com.zw.retrofit_demo.activity.Demo1Activity" />
+        <activity android:name="com.zw.retrofit_demo.activity.Demo2Activity" />
+
+        <activity android:name="com.zw.retrofit_demo.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

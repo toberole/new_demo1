@@ -14,8 +14,6 @@ import io.reactivex.subjects.BehaviorSubject
 import kotlinx.android.synthetic.main.activity_launch.*
 import org.reactivestreams.Subscriber
 import org.reactivestreams.Subscription
-import java.util.concurrent.Flow
-import android.R.string.no
 import java.lang.RuntimeException
 
 

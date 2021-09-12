@@ -7,10 +7,47 @@
     android:orientation="vertical"
     tools:context="com.zw.retrofit_demo.activity.Demo2Activity">
 
+    <EditText
+        android:id="@+id/et_test_index"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:inputType="number"
+        android:text="1" />
+
     <Button
         android:id="@+id/btn_test1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="test1"
         android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/btn_test2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="test2"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/btn_test3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="test3"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/btn_test4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="test4"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/btn_test5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="test5"
+        android:textAllCaps="false" />
+
 </androidx.appcompat.widget.LinearLayoutCompat>

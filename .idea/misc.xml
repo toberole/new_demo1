@@ -6,12 +6,18 @@
         <entry key="..\:/code/android/new_demo1/app/src/main/res/layout/activity_launch.xml" value="0.22395833333333334" />
         <entry key="..\:/code/android/new_demo1/app/src/main/res/layout/activity_rxjava.xml" value="0.22395833333333334" />
         <entry key="..\:/code/android/new_demo1/app/src/main/res/layout/activity_service.xml" value="0.22395833333333334" />
+        <entry key="..\:/code/android/new_demo1/flutter_demo/src/main/res/layout/activity_main.xml" value="0.22395833333333334" />
+        <entry key="..\:/code/android/new_demo1/okhttp_demo/src/main/res/layout/activity_demo1.xml" value="0.22395833333333334" />
+        <entry key="..\:/code/android/new_demo1/okhttp_demo/src/main/res/layout/activity_main.xml" value="0.20677083333333332" />
         <entry key="..\:/code/android/new_demo1/retrofit_demo/src/main/res/layout/activity_demo2.xml" value="0.22395833333333334" />
         <entry key="..\:/code/android/new_demo1/retrofit_demo/src/main/res/layout/activity_launch.xml" value="0.22395833333333334" />
         <entry key="..\:/code/android/new_demo1/retrofit_demo/src/main/res/layout/activity_main.xml" value="0.22395833333333334" />
         <entry key="..\:/code/android/new_demo1/rxjava_demo/src/main/res/layout/activity_launch.xml" value="0.22395833333333334" />
       </map>
     </option>
+  </component>
+  <component name="FrameworkDetectionExcludesConfiguration">
+    <type id="android" />
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />

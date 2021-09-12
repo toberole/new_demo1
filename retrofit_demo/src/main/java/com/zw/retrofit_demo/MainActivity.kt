@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import com.zw.retrofit_demo.activity.Demo1Activity
-import com.zw.rxjava_demo.R
+import com.zw.retrofit_demo.activity.Demo2Activity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
@@ -13,13 +13,19 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        btn_LaunchActivity.setOnClickListener(this)
+        btn_Demo1Activity.setOnClickListener(this)
+        btn_Demo2Activity.setOnClickListener(this)
     }
 
     override fun onClick(v: View?) {
         when (v?.id) {
-            R.id.btn_LaunchActivity -> {
+            R.id.btn_Demo1Activity -> {
                 var i = Intent(this@MainActivity, Demo1Activity::class.java)
+                startActivity(i)
+            }
+
+            R.id.btn_Demo2Activity -> {
+                var i = Intent(this@MainActivity, Demo2Activity::class.java)
                 startActivity(i)
             }
         }

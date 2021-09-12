@@ -9,7 +9,7 @@ android {
     buildToolsVersion "30.0.2"
 
     defaultConfig {
-        applicationId "com.zw.new_demo1"
+        applicationId "com.zw.rxjava_demo"
         minSdkVersion 16
         targetSdkVersion 30
         versionCode 1
@@ -18,7 +18,7 @@ android {
         multiDexEnabled true
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-         
+
     }
 
     buildTypes {
@@ -58,7 +58,6 @@ dependencies {
     // rxjava2
     implementation group: 'io.reactivex.rxjava2', name: 'rxandroid', version: '2.1.1'
     implementation group: 'io.reactivex.rxjava2', name: 'rxjava', version: '2.2.21'
-
 
 
 }
