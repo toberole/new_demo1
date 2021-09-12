@@ -1,6 +1,4 @@
-package com.zw.retrofit_demo.api.call_adapter;
-
-import com.zw.retrofit_demo.api.Student;
+package com.zw.retrofit_demo.adapter.call_adapter;
 
 import java.lang.reflect.Type;
 

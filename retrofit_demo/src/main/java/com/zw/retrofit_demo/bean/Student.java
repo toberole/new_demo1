@@ -1,4 +1,4 @@
-package com.zw.retrofit_demo.api;
+package com.zw.retrofit_demo.bean;
 
 public class Student {
     public long id;

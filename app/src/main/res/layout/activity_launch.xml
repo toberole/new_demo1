@@ -28,5 +28,14 @@
             android:layout_marginTop="5dp"
             android:text="RxjavaActivity"
             android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/btn_ServiceActivity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="ServiceActivity"
+            android:textAllCaps="false" />
+
     </LinearLayout>
 </ScrollView>

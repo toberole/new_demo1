@@ -6,7 +6,7 @@ import android.util.Log
 
 class App : Application() {
     companion object {
-        var TAG = App.javaClass.simpleName
+        var TAG = App.javaClass.simpleName + "-xxx"
 
         init {
             System.loadLibrary("native-lib")
@@ -15,7 +15,7 @@ class App : Application() {
 
     override fun onCreate() {
         super.onCreate()
-
+        Log.i(TAG, "pid: ${android.os.Process.myPid()}")
         val test_apk_path = Environment.getExternalStorageDirectory().toString() + "/app-debug.apk"
         Log.i(TAG, "test_apk_path: $test_apk_path")
     }

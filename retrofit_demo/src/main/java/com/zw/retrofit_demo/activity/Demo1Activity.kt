@@ -5,10 +5,10 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import androidx.core.app.ActivityCompat
-import com.zw.retrofit_demo.api.converter.MyStringConverterFactory
-import com.zw.retrofit_demo.api.Student
+import com.zw.retrofit_demo.adapter.converter.MyStringConverterFactory
+import com.zw.retrofit_demo.bean.Student
 import com.zw.retrofit_demo.api.StudentApi
-import com.zw.retrofit_demo.api.call_adapter.CustomCallAdapterFactory
+import com.zw.retrofit_demo.adapter.call_adapter.CustomCallAdapterFactory
 import com.zw.rxjava_demo.R
 import kotlinx.android.synthetic.main.activity_launch.*
 import kotlinx.coroutines.Dispatchers
@@ -37,7 +37,7 @@ Retrofit提供的CallAdapter:
     rxjava	com.squareup.retrofit2:adapter-rxjava:2.0.2
 
  */
-class LaunchActivity : AppCompatActivity(), View.OnClickListener {
+class Demo1Activity : AppCompatActivity(), View.OnClickListener {
     companion object {
         var PS = arrayOf<String>(
             android.Manifest.permission.INTERNET
@@ -48,7 +48,7 @@ class LaunchActivity : AppCompatActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_launch)
-        ActivityCompat.requestPermissions(this@LaunchActivity, PS, 110)
+        ActivityCompat.requestPermissions(this@Demo1Activity, PS, 110)
         btn_test1.setOnClickListener(this)
         btn_test2.setOnClickListener(this)
         btn_test3.setOnClickListener(this)
@@ -67,6 +67,7 @@ class LaunchActivity : AppCompatActivity(), View.OnClickListener {
                     // 针对rxjava2.x
                     .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                     .build()
+
                 var api = builder.create(StudentApi::class.java)
                 var call = api.test1(1, "Hello", 11)
                 call.enqueue(object : Callback<Student> {

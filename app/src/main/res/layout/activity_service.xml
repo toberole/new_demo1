@@ -5,26 +5,27 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.zw.retrofit_demo.activity.Demo1Activity">
+    tools:context=".activity1.ServiceActivity">
 
     <Button
-        android:id="@+id/btn_test1"
+        android:id="@+id/btn_start_service"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="test1"
+        android:text="start service"
         android:textAllCaps="false" />
 
     <Button
-        android:id="@+id/btn_test2"
+        android:id="@+id/btn_bind_service"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="MyStringConverter"
+        android:text="bind service"
         android:textAllCaps="false" />
 
+
     <Button
-        android:id="@+id/btn_test3"
+        android:id="@+id/btn_unbind_service"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="MyCallAdapter"
+        android:text="unbind service"
         android:textAllCaps="false" />
 </androidx.appcompat.widget.LinearLayoutCompat>

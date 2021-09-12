@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.zw.rxjava_demo">
+    package="com.zw.rxjava_demo" >
 
     <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -10,8 +11,14 @@
         android:networkSecurityConfig="@xml/network_security_config"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.New_demo1">
-        <activity android:name="com.zw.retrofit_demo.activity.LaunchActivity">
+        android:theme="@style/Theme.New_demo1" >
+        <activity
+            android:name="com.zw.retrofit_demo.activity.Demo2Activity"
+            android:exported="true" />
+        <activity
+            android:name="com.zw.retrofit_demo.activity.Demo1Activity"
+            android:exported="true" />
+        <activity android:name="com.zw.retrofit_demo.MainActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
