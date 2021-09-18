@@ -5,10 +5,12 @@
     android:versionName="1.1">
 
     <uses-permission android:name="android.permission.INTERNET" />
-
     <uses-permission android:name="android.permission.REBOOT" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <!--WAKE_LOCK-->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.DEVICE_POWER" />
 
     <application
         android:name=".App"
@@ -19,6 +21,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.New_demo1">
+        <activity android:name=".activity1.Demo1Activity"></activity>
         <activity
             android:name=".activity1.ServiceActivity"
             android:exported="true" />
@@ -45,6 +48,13 @@
             <intent-filter>
                 <action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
                 <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
+            </intent-filter>
+
+        </receiver>
+
+        <receiver android:name=".receiver.Launcher3BroadcastReceiver">
+            <intent-filter>
+                <action android:name="_com.meituan.qcs.meishi.wakeup_" />
             </intent-filter>
         </receiver>
     </application>

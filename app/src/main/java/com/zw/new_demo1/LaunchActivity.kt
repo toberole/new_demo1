@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import androidx.core.app.ActivityCompat
+import com.zw.new_demo1.activity1.Demo1Activity
 import com.zw.new_demo1.activity1.RetrofitActivity
 import com.zw.new_demo1.activity1.RxjavaActivity
 import com.zw.new_demo1.activity1.ServiceActivity
@@ -27,6 +28,8 @@ class LaunchActivity : AppCompatActivity(), View.OnClickListener {
         btn_MainActivity.setOnClickListener(this)
         btn_RxjavaActivity.setOnClickListener(this)
         btn_ServiceActivity.setOnClickListener(this)
+        btn_Demo1Activity.setOnClickListener(this)
+
 
         testlogFiles()
 
@@ -34,6 +37,10 @@ class LaunchActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onClick(v: View?) {
         when (v?.id) {
+            R.id.btn_Demo1Activity -> {
+                var i = Intent(this@LaunchActivity, Demo1Activity::class.java)
+                startActivity(i)
+            }
             R.id.btn_MainActivity -> {
                 var i = Intent(this@LaunchActivity, RetrofitActivity::class.java)
                 startActivity(i)

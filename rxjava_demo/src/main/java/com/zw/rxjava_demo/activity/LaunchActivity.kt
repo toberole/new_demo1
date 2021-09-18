@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import com.zw.rxjava_demo.R
+import com.zw.rxjava_demo.activity.test.Test1
 import io.reactivex.Observable
 import io.reactivex.ObservableOnSubscribe
 import io.reactivex.Observer
@@ -16,13 +17,13 @@ import org.reactivestreams.Subscriber
 import org.reactivestreams.Subscription
 import java.lang.RuntimeException
 
-
 class LaunchActivity : AppCompatActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_launch)
         btn_test1.setOnClickListener(this)
         btn_BehaviorSubject.setOnClickListener(this)
+        btn_Test1.setOnClickListener(this)
     }
 
     override fun onClick(v: View?) {
@@ -32,6 +33,11 @@ class LaunchActivity : AppCompatActivity(), View.OnClickListener {
             }
             R.id.btn_test1 -> {
                 test1()
+            }
+            R.id.btn_Test1 -> {
+                // Test1.test1()
+                // Test1.test2()
+                Test1.test3()
             }
         }
     }

@@ -25,5 +25,14 @@
             android:layout_height="wrap_content"
             android:text="BehaviorSubject"
             android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/btn_Test1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Test1"
+            android:textAllCaps="false" />
+
+        Test1
     </androidx.appcompat.widget.LinearLayoutCompat>
 </ScrollView>
