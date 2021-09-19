@@ -37,7 +37,13 @@ class LaunchActivity : AppCompatActivity(), View.OnClickListener {
             R.id.btn_Test1 -> {
                 // Test1.test1()
                 // Test1.test2()
-                Test1.test3()
+                // Test1.test3()
+                // Test1.test4()
+//                Test1.test7()
+//                Test1.test8()
+                // Test1.test9()
+//                Test1.test10()
+                Test1.test11()
             }
         }
     }
