@@ -6,6 +6,7 @@ import android.util.Log
 import android.view.View
 import com.zw.rxjava_demo.R
 import com.zw.rxjava_demo.activity.test.Test1
+import com.zw.rxjava_demo.activity.test.Test2
 import io.reactivex.Observable
 import io.reactivex.ObservableOnSubscribe
 import io.reactivex.Observer
@@ -24,10 +25,20 @@ class LaunchActivity : AppCompatActivity(), View.OnClickListener {
         btn_test1.setOnClickListener(this)
         btn_BehaviorSubject.setOnClickListener(this)
         btn_Test1.setOnClickListener(this)
+        btn_Test2.setOnClickListener(this)
+
+
     }
 
     override fun onClick(v: View?) {
         when (v?.id) {
+            R.id.btn_Test2 -> {
+                // Test2.test1()
+                // Test2.test2()
+//                Test2.test3()
+//                Test2.test5()
+                Test2.test6()
+            }
             R.id.btn_BehaviorSubject -> {
                 testBehaviorSubject()
             }
