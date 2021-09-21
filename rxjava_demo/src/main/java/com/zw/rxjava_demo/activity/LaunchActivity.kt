@@ -7,6 +7,7 @@ import android.view.View
 import com.zw.rxjava_demo.R
 import com.zw.rxjava_demo.activity.test.Test1
 import com.zw.rxjava_demo.activity.test.Test2
+import com.zw.rxjava_demo.activity.test.Test3
 import io.reactivex.Observable
 import io.reactivex.ObservableOnSubscribe
 import io.reactivex.Observer
@@ -37,7 +38,9 @@ class LaunchActivity : AppCompatActivity(), View.OnClickListener {
                 // Test2.test2()
 //                Test2.test3()
 //                Test2.test5()
-                Test2.test6()
+//                Test2.test6()
+//                Test3.test1()
+                Test3.test2()
             }
             R.id.btn_BehaviorSubject -> {
                 testBehaviorSubject()

@@ -21,10 +21,13 @@ import io.reactivex.ObservableSource;
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
+import io.reactivex.functions.Action;
 import io.reactivex.functions.Consumer;
 import io.reactivex.functions.Function;
 import io.reactivex.observables.ConnectableObservable;
+import io.reactivex.processors.AsyncProcessor;
 import io.reactivex.schedulers.Schedulers;
+import io.reactivex.subjects.AsyncSubject;
 
 public class Test2 {
     private static final String TAG = Test2.class.getSimpleName();
@@ -249,5 +252,64 @@ public class Test2 {
 
     public static void test7() {
         // https://www.jianshu.com/p/a406b94f3188
+        Observable observable = Observable.create(new ObservableOnSubscribe<String>() {
+            @Override
+            public void subscribe(@NonNull ObservableEmitter<String> emitter) throws Exception {
+
+            }
+        });
+        observable.subscribe(new Consumer() {
+            @Override
+            public void accept(Object o) throws Exception {
+
+            }
+        }, new Consumer<Object>() {
+            @Override
+            public void accept(Object o) throws Exception {
+
+            }
+        }, new Action() {
+            @Override
+            public void run() throws Exception {
+
+            }
+        });
+
+        //Processor
+        AsyncProcessor<String> processor = AsyncProcessor.create();
+        processor.subscribe(o -> Log.d("JG",o)); //three
+        processor.onNext("one");
+        processor.onNext("two");
+        processor.onNext("three");
+        processor.onComplete();
+        processor.subscribe(new Subscriber<String>() {
+            @Override
+            public void onSubscribe(Subscription s) {
+
+            }
+
+            @Override
+            public void onNext(String s) {
+
+            }
+
+            @Override
+            public void onError(Throwable t) {
+
+            }
+
+            @Override
+            public void onComplete() {
+
+            }
+        });
+
+        //Subject
+        AsyncSubject<String> subject = AsyncSubject.create();
+        subject.subscribe(o -> Log.d("JG",o));//three
+        subject.onNext("one");
+        subject.onNext("two");
+        subject.onNext("three");
+        subject.onComplete();
     }
 }

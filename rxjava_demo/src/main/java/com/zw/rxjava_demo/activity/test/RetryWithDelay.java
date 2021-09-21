@@ -1,9 +1,6 @@
 package com.zw.rxjava_demo.activity.test;
 
-import android.os.Build;
 import android.util.Log;
-
-import androidx.annotation.RequiresApi;
 
 import java.util.concurrent.TimeUnit;
 
