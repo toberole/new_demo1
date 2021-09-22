@@ -1,53 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:fillViewport="true"
+    android:scrollbars="none"
     tools:context="com.zw.retrofit_demo.activity.Demo2Activity">
 
-    <EditText
-        android:id="@+id/et_test_index"
+    <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:inputType="number"
-        android:text="1" />
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <Button
-        android:id="@+id/btn_test1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="test1"
-        android:textAllCaps="false" />
+        <EditText
+            android:id="@+id/et_test_index"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:inputType="number"
+            android:text="1" />
 
-    <Button
-        android:id="@+id/btn_Interceptor"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="添加Interceptor"
-        android:textAllCaps="false" />
+        <Button
+            android:id="@+id/btn_test1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="test1"
+            android:textAllCaps="false" />
 
-    <Button
-        android:id="@+id/btn_Converter"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="自定义Converter"
-        android:textAllCaps="false" />
+        <Button
+            android:id="@+id/btn_Interceptor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="添加Interceptor"
+            android:textAllCaps="false" />
 
-    <Button
-        android:id="@+id/btn_Adapter"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Adapter"
-        android:textAllCaps="false" />
+        <Button
+            android:id="@+id/btn_Converter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="自定义Converter"
+            android:textAllCaps="false" />
 
-    <Button
-        android:id="@+id/btn_test5"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="test5"
-        android:textAllCaps="false" />
+        <Button
+            android:id="@+id/btn_Adapter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Adapter"
+            android:textAllCaps="false" />
 
-</androidx.appcompat.widget.LinearLayoutCompat>
+        <Button
+            android:id="@+id/btn_test5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="test5"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/btn_test6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="test6"
+            android:textAllCaps="false" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</ScrollView>

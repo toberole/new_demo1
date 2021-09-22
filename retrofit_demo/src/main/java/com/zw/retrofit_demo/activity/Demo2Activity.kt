@@ -11,6 +11,7 @@ import com.zw.retrofit_demo.retrofit.intercepter.MyIntercepter
 import com.zw.retrofit_demo.retrofit.intercepter.MyNetworkInterceptor
 import com.zw.retrofit_demo.retrofit.api.StudentApi2
 import com.zw.retrofit_demo.retrofit.converter2.MyStringConverterFactoryDemo1
+import com.zw.retrofit_demo.test.Test1
 import kotlinx.android.synthetic.main.activity_demo2.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
@@ -38,22 +39,14 @@ class Demo2Activity : AppCompatActivity(), View.OnClickListener {
         btn_Converter.setOnClickListener(this)
         btn_Adapter.setOnClickListener(this)
         btn_test5.setOnClickListener(this)
+        btn_test6.setOnClickListener(this)
+
+
     }
 
     override fun onClick(v: View?) {
         test_index = Integer.parseInt(et_test_index.text.toString())
         when (v?.id) {
-            R.id.btn_test1 -> {
-                when (test_index) {
-                    0 -> {
-                        test()
-                    }
-                    1 -> {
-                        test1()
-                    }
-                }
-            }
-
             R.id.btn_Interceptor -> {
                 test_Interceptor()
             }
@@ -65,6 +58,21 @@ class Demo2Activity : AppCompatActivity(), View.OnClickListener {
             }
             R.id.btn_test5 -> {
                 test5()
+            }
+
+            R.id.btn_test6 -> {
+                Test1.test1()
+            }
+
+            R.id.btn_test1 -> {
+                when (test_index) {
+                    0 -> {
+                        test()
+                    }
+                    1 -> {
+                        test1()
+                    }
+                }
             }
         }
     }
