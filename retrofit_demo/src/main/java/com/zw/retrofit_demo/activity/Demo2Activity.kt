@@ -82,7 +82,7 @@ class Demo2Activity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun test_test7() {
-
+        Test1.test2()
     }
 
     private fun test5() {

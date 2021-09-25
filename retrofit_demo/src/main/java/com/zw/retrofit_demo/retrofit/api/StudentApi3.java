@@ -11,5 +11,11 @@ public interface StudentApi3 {
     Call<ResponseBody> test1();
 
     @GET("/")
-    MyCallDemo3 test2();
+    MyCallDemo3<String> test2();
+
+//    @GET("/") 错误写法
+//    MyCallDemo3  test2();
+
+    @GET("/")
+    Call<String> test3();
 } 

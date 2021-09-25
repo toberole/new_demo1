@@ -20,7 +20,7 @@ import retrofit2.Retrofit;
 public class Test1 {
     private static String TAG = Test1.class.getSimpleName();
     // https://github.com/toberole/new_demo1/blob/main/data.txt
-    private static final String BASE_URL = "https://github.com";
+    private static final String BASE_URL = "http://192.168.8.205:8001";
 
     /**
      * 手动组合OkHttp和Retrofit
@@ -70,14 +70,35 @@ public class Test1 {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                Retrofit retrofit = new Retrofit.Builder()
-                        .baseUrl(BASE_URL)
-                        .addConverterFactory(new MyConverterFactory3())
-                        .addCallAdapterFactory(new MyCallAdapterFactory3())
-                        .build();
-                StudentApi3 studentApi3 = retrofit.create(StudentApi3.class);
-                MyCallDemo3 myCallDemo3 = studentApi3.test2();
-                String str = myCallDemo3.get();
+                try {
+                    Retrofit retrofit = new Retrofit.Builder()
+                            .baseUrl(BASE_URL)
+                            .addCallAdapterFactory(new MyCallAdapterFactory3())
+                            .addConverterFactory(new MyConverterFactory3())
+                            .build();
+                    StudentApi3 studentApi3 = retrofit.create(StudentApi3.class);
+                    MyCallDemo3<String> myCallDemo3 = studentApi3.test2();
+                    String str = myCallDemo3.get();
+                    Log.i(TAG, "str: " + str);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    Log.i(TAG, "Exception: " + e.getMessage());
+                }
+
+                try {
+                    Retrofit retrofit = new Retrofit.Builder()
+                            .baseUrl(BASE_URL)
+                            .addConverterFactory(new MyConverterFactory3())
+                            .build();
+                    StudentApi3 studentApi3 = retrofit.create(StudentApi3.class);
+                    Call<String> call = studentApi3.test3();
+                    String str = call.execute().message();
+                    Log.i(TAG, "str: " + str);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    Log.i(TAG, "Exception: " + e.getMessage());
+                }
+
             }
         }).start();
     }
