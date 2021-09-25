@@ -6,7 +6,7 @@ import android.util.Log
 import android.view.View
 import com.zw.retrofit_demo.Constant
 import com.zw.retrofit_demo.R
-import com.zw.retrofit_demo.retrofit.adapter2.MyCallAdapterFactoryDemo1
+import com.zw.retrofit_demo.retrofit.adapter2.MyCallAdapterFactoryDemo2
 import com.zw.retrofit_demo.retrofit.intercepter.MyIntercepter
 import com.zw.retrofit_demo.retrofit.intercepter.MyNetworkInterceptor
 import com.zw.retrofit_demo.retrofit.api.StudentApi2
@@ -40,6 +40,7 @@ class Demo2Activity : AppCompatActivity(), View.OnClickListener {
         btn_Adapter.setOnClickListener(this)
         btn_test5.setOnClickListener(this)
         btn_test6.setOnClickListener(this)
+        btn_test7.setOnClickListener(this)
 
 
     }
@@ -47,6 +48,9 @@ class Demo2Activity : AppCompatActivity(), View.OnClickListener {
     override fun onClick(v: View?) {
         test_index = Integer.parseInt(et_test_index.text.toString())
         when (v?.id) {
+            R.id.btn_test7 -> {
+                test_test7()
+            }
             R.id.btn_Interceptor -> {
                 test_Interceptor()
             }
@@ -77,6 +81,10 @@ class Demo2Activity : AppCompatActivity(), View.OnClickListener {
         }
     }
 
+    private fun test_test7() {
+
+    }
+
     private fun test5() {
 
     }
@@ -84,7 +92,7 @@ class Demo2Activity : AppCompatActivity(), View.OnClickListener {
     private fun test_Adapter() {
         var retrofit = Retrofit.Builder().baseUrl(Constant.BASE_URL)
             .addConverterFactory(MyStringConverterFactoryDemo1.create())
-            .addCallAdapterFactory(MyCallAdapterFactoryDemo1.create())
+            .addCallAdapterFactory(MyCallAdapterFactoryDemo2.create())
             .build()
         var api = retrofit.create(StudentApi2::class.java)
         var mycall = api.test3(1, "", 1, 1)

@@ -5,11 +5,11 @@ import java.lang.reflect.Type;
 import retrofit2.Call;
 import retrofit2.CallAdapter;
 
-public class MyCallAdapterDemo1<R> implements CallAdapter<R, MyCallDemo1> {
+public class MyCallAdapterDemo2<R> implements CallAdapter<R, MyCallDemo2> {
     private final Type responseType;
 
     // 下面的 responseType 方法需要数据的类型
-    MyCallAdapterDemo1(Type responseType) {
+    MyCallAdapterDemo2(Type responseType) {
         this.responseType = responseType;
     }
 
@@ -19,7 +19,7 @@ public class MyCallAdapterDemo1<R> implements CallAdapter<R, MyCallDemo1> {
     }
 
     @Override
-    public MyCallDemo1 adapt(Call<R> call) {
-        return new MyCallDemo1(call);
+    public MyCallDemo2 adapt(Call<R> call) {
+        return new MyCallDemo2(call);
     }
 }

@@ -63,6 +63,14 @@
             android:text="test6"
             android:textAllCaps="false" />
 
+        <Button
+            android:id="@+id/btn_test7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="test7"
+            android:textAllCaps="false" />
+
+
     </androidx.appcompat.widget.LinearLayoutCompat>
 
 </ScrollView>

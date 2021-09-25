@@ -4,10 +4,10 @@ import java.io.IOException;
 
 import retrofit2.Call;
 
-public class MyCallDemo1<T> {
+public class MyCallDemo2<T> {
     private final Call<T> call;
 
-    public MyCallDemo1(Call<T> call) {
+    public MyCallDemo2(Call<T> call) {
         this.call = call;
     }
 

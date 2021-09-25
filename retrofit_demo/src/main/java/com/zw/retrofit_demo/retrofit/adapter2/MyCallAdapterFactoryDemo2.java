@@ -41,10 +41,10 @@ public interface CallAdapter<T> {
   }
 }
  */
-public class MyCallAdapterFactoryDemo1 extends CallAdapter.Factory {
-    private static MyCallAdapterFactoryDemo1 myCallAdapterFactoryDemo1 = new MyCallAdapterFactoryDemo1();
+public class MyCallAdapterFactoryDemo2 extends CallAdapter.Factory {
+    private static MyCallAdapterFactoryDemo2 myCallAdapterFactoryDemo1 = new MyCallAdapterFactoryDemo2();
 
-    public static MyCallAdapterFactoryDemo1 create() {
+    public static MyCallAdapterFactoryDemo2 create() {
         return myCallAdapterFactoryDemo1;
     }
 
@@ -56,13 +56,13 @@ public class MyCallAdapterFactoryDemo1 extends CallAdapter.Factory {
     @Nullable
     @Override
     // CallAdapter<R, T>
-    public CallAdapter<Call, MyCallDemo1> get(Type returnType, Annotation[] annotations, Retrofit retrofit) {
+    public CallAdapter<Call, MyCallDemo2> get(Type returnType, Annotation[] annotations, Retrofit retrofit) {
         // 获取原始类型
         Class<?> returnType_rawType = getRawType(returnType);
         // 返回值必须是CustomCall并且带有泛型
-        if (returnType_rawType == MyCallDemo1.class && returnType instanceof ParameterizedType) {
+        if (returnType_rawType == MyCallDemo2.class && returnType instanceof ParameterizedType) {
             Type callReturnType = getParameterUpperBound(0, (ParameterizedType) returnType);
-            return new MyCallAdapterDemo1(callReturnType);
+            return new MyCallAdapterDemo2(callReturnType);
         }
         return null;
     }
