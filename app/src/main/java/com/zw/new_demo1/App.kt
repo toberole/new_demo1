@@ -17,7 +17,6 @@ class App : Application() {
 
     override fun onCreate() {
         super.onCreate()
-
         var f = File("${Environment.getExternalStorageDirectory()}/aaa_test_xxx")
         if (!f.exists()) {
             f.mkdirs()
