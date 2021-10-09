@@ -24,16 +24,16 @@ FileLogger::FileLogger(std::string log_file_path)
 
     string_replaceAll(log_file_path, "/", "\\");
 
-    //1.获取不带路径的文件名
+    // 1.获取不带路径的文件名
     std::string::size_type iPos = log_file_path.find_last_of('\\') + 1;
     std::string filename = log_file_path.substr(iPos, log_file_path.length() - iPos);
     LOGI("filename: %s", filename.c_str());
 
-    //2.获取不带后缀的文件名
+    // 2.获取不带后缀的文件名
     std::string name = filename.substr(0, filename.rfind("."));
     LOGI("name: %s", name.c_str());
 
-    //3.获取后缀名
+    // 3.获取后缀名
     std::string suffix_str = filename.substr(filename.find_last_of('.') + 1);
     LOGI("suffix_str: %s", suffix_str.c_str());
 
