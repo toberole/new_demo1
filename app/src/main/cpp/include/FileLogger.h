@@ -11,17 +11,17 @@ private:
     std::string temp_cache_file;
     uint8_t *mapped = nullptr;
     int32_t mmap_size = 0;
-    int32_t cur_len = 0;
+    int32_t cur_cache_len = 0;
 public:
     FileLogger(std::string file_dir);
 
-    int read(uint8_t **buf);
-
     int write(uint8_t *data, size_t len);
 
-    void flushCache();
+    void flushCacheFile();
 
     void close();
+
+    bool init();
 };
 
 

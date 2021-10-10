@@ -8,6 +8,8 @@ import java.io.FileWriter;
 import java.text.SimpleDateFormat;
 
 public class FileLogger {
+    private static final String TAG = FileLogger.class.getSimpleName();
+
     private static final SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss.SS");
 
     private static final String LOG_V = "V";
@@ -18,6 +20,7 @@ public class FileLogger {
 
     private Context context;
     private final String log_dir;
+
     private String name;
 
     public static FileLogger getInstance(Context ctx, String name) {
