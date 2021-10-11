@@ -1,6 +1,9 @@
 package com.zw.new_demo1.util;
 
 import android.content.Context;
+import android.os.Handler;
+import android.os.HandlerThread;
+import android.os.Message;
 import android.os.Process;
 import android.util.Log;
 
@@ -33,13 +36,30 @@ public class NativeFileLogger {
     private Context context;
     private long instance = 0;
 
+    public static final int FLUSH_WHAT = 1024;
+    private HandlerThread handlerThread = new HandlerThread("flush");
+    private Handler handler;
+
     public synchronized boolean init(Context ctx) {
         context = ctx.getApplicationContext();
         String log_file_path = initFileLogger(context);
         Log.i(TAG, "NativeFileLogger initFileLogger log_file_path: " + log_file_path);
-
         instance = native_init(log_file_path);
         Log.i(TAG, "NativeFileLogger init instance: " + instance);
+
+        if (instance != 0) {
+            // 定时刷新到磁盘
+            handlerThread.start();
+            handler = new Handler(handlerThread.getLooper()) {
+                @Override
+                public void handleMessage(Message msg) {
+                    super.handleMessage(msg);
+                    flush();
+                    handler.sendEmptyMessageDelayed(FLUSH_WHAT, 30 * 1000);
+                }
+            };
+            handler.sendEmptyMessageDelayed(FLUSH_WHAT, 30 * 1000);
+        }
         return instance != 0;
     }
 

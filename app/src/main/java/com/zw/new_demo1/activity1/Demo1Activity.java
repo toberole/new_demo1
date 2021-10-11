@@ -93,7 +93,7 @@ public class Demo1Activity extends AppCompatActivity implements View.OnClickList
                     for (int i = 0; i < count; i++) {
                         NativeFileLogger.getInstance().i(TAG, i + "---> " + s);
                     }
-                    NativeFileLogger.getInstance().flush();
+                    // NativeFileLogger.getInstance().flush();
                     long end = System.currentTimeMillis();
                     long NativeFileLogger_time = end - t;
                     Log.i("time-xxx", "NativeFileLogger time: " + NativeFileLogger_time);

@@ -90,6 +90,7 @@ int FileLogger::write(uint8_t *data, size_t len) {
 void FileLogger::close() {
     if (cur_cache_len > 0) {
         flushCacheFile();
+        cur_cache_len = 0;
     }
 }
 
