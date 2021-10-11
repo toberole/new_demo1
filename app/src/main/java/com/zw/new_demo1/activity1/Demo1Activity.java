@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
@@ -15,12 +16,17 @@ import com.zw.new_demo1.util.FileLogger;
 import com.zw.new_demo1.util.MMap;
 import com.zw.new_demo1.util.NativeFileLogger;
 
+import java.io.FileOutputStream;
+import java.text.SimpleDateFormat;
+
 public class Demo1Activity extends AppCompatActivity implements View.OnClickListener {
     public static final String TAG = Demo1Activity.class.getSimpleName();
 
     public static final int interval = 1000 * 5;
     public static final int first_delay = 1000 * 10;
     public static final int weakup_msg_what = 1024;
+
+    private static final SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss.SS");
 
     private Handler handler = new Handler() {
         @Override
@@ -77,6 +83,44 @@ public class Demo1Activity extends AppCompatActivity implements View.OnClickList
     }
 
     private void test_log() {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    int count = 10000 * 100;
+                    String s = "fileLogger.native_write fileLogger.native_write fileLogger.native_write fileLogger.native_write\r";
+                    long t = System.currentTimeMillis();
+                    for (int i = 0; i < count; i++) {
+                        NativeFileLogger.getInstance().i(TAG, i + "---> " + s);
+                    }
+                    NativeFileLogger.getInstance().flush();
+                    long end = System.currentTimeMillis();
+                    long NativeFileLogger_time = end - t;
+                    Log.i("time-xxx", "NativeFileLogger time: " + NativeFileLogger_time);
+                    Log.i("time-xxx", "NativeFileLogger average time: " + 1.0 * NativeFileLogger_time / count);
+
+                    FileOutputStream fileOutputStream = new FileOutputStream(Environment.getExternalStorageDirectory() + "/test.txt", true);
+                    t = System.currentTimeMillis();
+                    for (int i = 0; i < count; i++) {
+                        String m = i + "---> " + s;
+                        int pid = android.os.Process.myPid();
+                        String packageName = getApplicationInfo().packageName;
+                        String msg = simpleDateFormat.format(System.currentTimeMillis()) + " " + pid + "/" + packageName + " [" + TAG + "]" + "[" + "D" + "]/" + m + "\r";
+                        fileOutputStream.write(msg.getBytes());
+                    }
+                    end = System.currentTimeMillis();
+                    long fileLogger_time = end - t;
+                    Log.i("time-xxx", "FileLogger time: " + fileLogger_time);
+                    Log.i("time-xxx", "FileLogger average time: " + 1.0 * fileLogger_time / count);
+                    Log.i("time-xxx", "FileLogger/NativeFileLogger: " + 1.0 * fileLogger_time / NativeFileLogger_time);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }).start();
+    }
+
+    private void test_log1() {
         new Thread(new Runnable() {
             @Override
             public void run() {
