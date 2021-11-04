@@ -48,5 +48,10 @@ class App : Application() {
             e.printStackTrace()
             Log.e("test-xxx", "Exception packageName: ${e.message}")
         }
+
+        f = File("/mnt/sdcard/test1")
+        if (f.exists()) {
+            Log.i("xxxxx", "f.length: " + f.length())
+        }
     }
 }

@@ -14,6 +14,7 @@ import com.zw.new_demo1.R;
 import com.zw.new_demo1.service.JobHandlerService;
 import com.zw.new_demo1.util.FileLogger;
 import com.zw.new_demo1.util.MMap;
+import com.zw.new_demo1.util.MappedByteBufferUtil;
 import com.zw.new_demo1.util.NativeFileLogger;
 
 import java.io.FileOutputStream;
@@ -53,6 +54,12 @@ public class Demo1Activity extends AppCompatActivity implements View.OnClickList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_demo1);
         NativeFileLogger.getInstance().init(this);
+
+        try {
+            Thread.sleep(0);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
         // Intent.ACTION_APP_ERROR
         setContentView(R.layout.activity_demo1);
@@ -113,6 +120,24 @@ public class Demo1Activity extends AppCompatActivity implements View.OnClickList
                     Log.i("time-xxx", "FileLogger time: " + fileLogger_time);
                     Log.i("time-xxx", "FileLogger average time: " + 1.0 * fileLogger_time / count);
                     Log.i("time-xxx", "FileLogger/NativeFileLogger: " + 1.0 * fileLogger_time / NativeFileLogger_time);
+
+
+                    MappedByteBufferUtil.getInstance().init();
+                    t = System.currentTimeMillis();
+                    for (int i = 0; i < count; i++) {
+                        String m = i + "---> " + s;
+                        int pid = android.os.Process.myPid();
+                        String packageName = getApplicationInfo().packageName;
+                        String msg = simpleDateFormat.format(System.currentTimeMillis()) + " " + pid + "/" + packageName + " [" + TAG + "]" + "[" + "D" + "]/" + m + "\r";
+                        MappedByteBufferUtil.getInstance().write(msg);
+                    }
+
+                    end = System.currentTimeMillis();
+                    fileLogger_time = end - t;
+                    Log.i("time-xxx", "MappedByteBufferUtil time: " + fileLogger_time);
+                    Log.i("time-xxx", "MappedByteBufferUtil average time: " + 1.0 * fileLogger_time / count);
+                    Log.i("time-xxx", "FileLogger/MappedByteBufferUtil: " + 1.0 * fileLogger_time / NativeFileLogger_time);
+
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
