@@ -8,6 +8,13 @@
     tools:context=".activity1.Demo1Activity">
 
     <Button
+        android:id="@+id/btn_mem1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="mem_test1"
+        android:textAllCaps="false" />
+
+    <Button
         android:id="@+id/btn_send"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
