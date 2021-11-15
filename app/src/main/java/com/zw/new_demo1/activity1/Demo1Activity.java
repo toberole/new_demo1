@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.View;
 
 import com.zw.new_demo1.R;
+import com.zw.new_demo1.native_demo.MemTest;
 import com.zw.new_demo1.service.JobHandlerService;
 import com.zw.new_demo1.util.FileLogger;
 import com.zw.new_demo1.util.MMap;
@@ -67,11 +68,17 @@ public class Demo1Activity extends AppCompatActivity implements View.OnClickList
         findViewById(R.id.btn_job).setOnClickListener(this);
         findViewById(R.id.btn_test1).setOnClickListener(this);
         findViewById(R.id.btn_test2).setOnClickListener(this);
+        findViewById(R.id.btn_mem1).setOnClickListener(this);
+
+
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
+            case R.id.btn_mem1:
+                MemTest.native_test1(1024 * 1024);
+                break;
             case R.id.btn_send:
                 send_weakup_Broadcast();
                 break;
