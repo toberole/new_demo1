@@ -1,5 +1,15 @@
 package com.zw.rxjava_demo.activity.test;
 
+import android.annotation.SuppressLint;
+import android.util.Log;
+
+import io.reactivex.Observable;
+import io.reactivex.ObservableEmitter;
+import io.reactivex.ObservableOnSubscribe;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.annotations.NonNull;
+import io.reactivex.functions.Consumer;
+
 public class Test4 {
     private static final String TAG = Test4.class.getSimpleName();
 
@@ -16,5 +26,37 @@ public class Test4 {
     public static void test1() {
         // https://www.jianshu.com/p/cd984dd5aae8
         // https://blog.csdn.net/jdsjlzx/article/details/51505053
+    }
+
+    @SuppressLint("CheckResult")
+    public static void test2() {
+        Observable<String> observable = Observable.create(new ObservableOnSubscribe<String>() {
+            @Override
+            public void subscribe(@NonNull ObservableEmitter<String> emitter) throws Exception {
+                emitter.onNext("Hello " + System.currentTimeMillis());
+            }
+        });
+
+        Consumer<String> c1 = new Consumer<String>() {
+            @Override
+            public void accept(String s) throws Exception {
+                Log.i(TAG, "c1 s: " + s);
+            }
+        };
+
+        Consumer<String> c2 = new Consumer<String>() {
+            @Override
+            public void accept(String s) throws Exception {
+                Log.i(TAG, "c2 s: " + s);
+            }
+        };
+
+        observable.subscribeOn(AndroidSchedulers.mainThread())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(c1);
+
+        observable.subscribeOn(AndroidSchedulers.mainThread())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(c2);
     }
 }
