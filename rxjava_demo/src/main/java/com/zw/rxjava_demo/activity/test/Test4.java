@@ -59,4 +59,27 @@ public class Test4 {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(c2);
     }
+
+    public static void test3() {
+
+        Observable<String> observable = Observable.create(new ObservableOnSubscribe<String>() {
+            @Override
+            public void subscribe(@NonNull ObservableEmitter<String> emitter) throws Exception {
+                Log.i(TAG, "subscribe Thread: " + Thread.currentThread().getId());
+                emitter.onNext("Hello " + System.currentTimeMillis());
+            }
+        });
+
+        Consumer<String> c1 = new Consumer<String>() {
+            @Override
+            public void accept(String s) throws Exception {
+                Log.i(TAG, "c1 s: " + s + ",Thread: " + Thread.currentThread().getId());
+            }
+        };
+
+        // 默认"订阅者"和"被订阅者"运行在同一个线程中
+        observable.subscribe(c1);
+
+
+    }
 }

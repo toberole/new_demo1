@@ -2,17 +2,17 @@ package com.zw.new_demo1
 
 import android.Manifest
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import com.zw.new_demo1.activity1.Demo1Activity
 import com.zw.new_demo1.activity1.RetrofitActivity
 import com.zw.new_demo1.activity1.RxjavaActivity
 import com.zw.new_demo1.activity1.ServiceActivity
 import kotlinx.android.synthetic.main.activity_launch.*
-import java.util.ArrayList
+import java.util.*
 
 class LaunchActivity : AppCompatActivity(), View.OnClickListener {
     private var PS = arrayOf<String>(
@@ -24,6 +24,14 @@ class LaunchActivity : AppCompatActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_launch)
+
+        val javaMax = Runtime.getRuntime().maxMemory()
+        val javaTotal = Runtime.getRuntime().totalMemory()
+        val javaUsed = javaTotal - Runtime.getRuntime().freeMemory()
+        // Java 内存使用超过最大限制的 85%
+        val proportion = javaUsed.toFloat() / javaMax
+        Log.i("xxxx", "proportion: $proportion")
+
         ActivityCompat.requestPermissions(this, PS, 110)
         btn_MainActivity.setOnClickListener(this)
         btn_RxjavaActivity.setOnClickListener(this)
