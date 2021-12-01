@@ -21,7 +21,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.New_demo1">
-        <activity android:name=".activity1.SchedulerAcitvity"></activity>
+        <activity android:name=".activity1.SystemInfoActivity"></activity>
+        <activity android:name=".activity1.SchedulerAcitvity" />
         <activity android:name=".activity1.Demo1Activity" />
         <activity
             android:name=".activity1.ServiceActivity"
@@ -58,7 +59,8 @@
             </intent-filter>
         </receiver>
 
-        <service android:name=".service.JobHandlerService"
+        <service
+            android:name=".service.JobHandlerService"
             android:permission="android.permission.BIND_JOB_SERVICE" />
     </application>
 

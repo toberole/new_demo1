@@ -7,10 +7,7 @@ import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
-import com.zw.new_demo1.activity1.Demo1Activity
-import com.zw.new_demo1.activity1.RetrofitActivity
-import com.zw.new_demo1.activity1.RxjavaActivity
-import com.zw.new_demo1.activity1.ServiceActivity
+import com.zw.new_demo1.activity1.*
 import kotlinx.android.synthetic.main.activity_launch.*
 import java.util.*
 
@@ -25,22 +22,25 @@ class LaunchActivity : AppCompatActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_launch)
 
-        val javaMax = Runtime.getRuntime().maxMemory()
-        val javaTotal = Runtime.getRuntime().totalMemory()
-        val javaUsed = javaTotal - Runtime.getRuntime().freeMemory()
-        // Java 内存使用超过最大限制的 85%
-        val proportion = javaUsed.toFloat() / javaMax
-        Log.i("xxxx", "proportion: $proportion")
+        testMem()
 
         ActivityCompat.requestPermissions(this, PS, 110)
         btn_MainActivity.setOnClickListener(this)
         btn_RxjavaActivity.setOnClickListener(this)
         btn_ServiceActivity.setOnClickListener(this)
         btn_Demo1Activity.setOnClickListener(this)
-
+        btn_SystemInfoActivity.setOnClickListener(this)
 
         testlogFiles()
+    }
 
+    private fun testMem() {
+        val javaMax = Runtime.getRuntime().maxMemory()
+        val javaTotal = Runtime.getRuntime().totalMemory()
+        val javaUsed = javaTotal - Runtime.getRuntime().freeMemory()
+        // Java 内存使用超过最大限制的 85%
+        val proportion = javaUsed.toFloat() / javaMax
+        Log.i("xxxx", "proportion: $proportion")
     }
 
     override fun onClick(v: View?) {
@@ -59,6 +59,10 @@ class LaunchActivity : AppCompatActivity(), View.OnClickListener {
             }
             R.id.btn_ServiceActivity -> {
                 var i = Intent(this@LaunchActivity, ServiceActivity::class.java)
+                startActivity(i)
+            }
+            R.id.btn_SystemInfoActivity -> {
+                var i = Intent(this@LaunchActivity, SystemInfoActivity::class.java)
                 startActivity(i)
             }
         }

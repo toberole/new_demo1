@@ -46,5 +46,13 @@
             android:text="ServiceActivity"
             android:textAllCaps="false" />
 
+        <Button
+            android:id="@+id/btn_SystemInfoActivity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="SystemInfoActivity"
+            android:textAllCaps="false" />
+
     </LinearLayout>
 </ScrollView>
