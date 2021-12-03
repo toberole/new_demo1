@@ -19,6 +19,7 @@
             <option value="$PROJECT_DIR$/okhttp_demo" />
             <option value="$PROJECT_DIR$/retrofit_demo" />
             <option value="$PROJECT_DIR$/rxjava_demo" />
+            <option value="$PROJECT_DIR$/server" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
