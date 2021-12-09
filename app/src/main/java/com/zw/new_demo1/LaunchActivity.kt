@@ -1,8 +1,11 @@
 package com.zw.new_demo1
 
 import android.Manifest
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
+import android.os.Message
 import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
@@ -12,17 +15,31 @@ import kotlinx.android.synthetic.main.activity_launch.*
 import java.util.*
 
 class LaunchActivity : AppCompatActivity(), View.OnClickListener {
+    companion object {
+        var TAG = LaunchActivity::class.java.simpleName
+    }
+
     private var PS = arrayOf<String>(
         Manifest.permission.INTERNET,
         Manifest.permission.READ_EXTERNAL_STORAGE,
         Manifest.permission.WRITE_EXTERNAL_STORAGE
     )
 
+    private var handler = @SuppressLint("HandlerLeak")
+    object : Handler() {
+        override fun handleMessage(msg: Message) {
+            super.handleMessage(msg)
+            Log.i(TAG, "handleMessage")
+        }
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_launch)
 
         testMem()
+
+        testHandler()
 
         ActivityCompat.requestPermissions(this, PS, 110)
         btn_MainActivity.setOnClickListener(this)
@@ -32,6 +49,16 @@ class LaunchActivity : AppCompatActivity(), View.OnClickListener {
         btn_SystemInfoActivity.setOnClickListener(this)
 
         testlogFiles()
+    }
+
+    private fun testHandler() {
+        var runnable = object : Runnable {
+            override fun run() {
+                Log.i(TAG, "testHandler")
+            }
+        }
+        Log.i("$TAG-xxx", "testHandler")
+        handler.removeCallbacks(runnable)
     }
 
     private fun testMem() {
