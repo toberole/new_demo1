@@ -3,8 +3,9 @@
 
 class Server {
 private:
-    int port;
-    int server_fd;
+    int port = 0;
+    int server_fd = 0;
+    int isStop = 0;
 public:
     Server(int port);
 
