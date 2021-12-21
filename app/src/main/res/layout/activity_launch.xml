@@ -12,8 +12,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
-
-
         <Button
             android:id="@+id/btn_Demo1Activity"
             android:layout_width="match_parent"
@@ -54,5 +52,12 @@
             android:text="SystemInfoActivity"
             android:textAllCaps="false" />
 
+        <Button
+            android:id="@+id/btn_ShellActivity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="ShellActivity"
+            android:textAllCaps="false" />
     </LinearLayout>
 </ScrollView>

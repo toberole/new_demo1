@@ -1,4 +1,4 @@
-package com.zw.new_demo1.activity1;
+package com.zw.new_demo1.device;
 
 import android.app.ActivityManager;
 import android.content.Context;

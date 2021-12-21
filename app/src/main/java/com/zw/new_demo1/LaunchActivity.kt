@@ -11,6 +11,8 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import com.zw.new_demo1.activity1.*
+import com.zw.new_demo1.device.ShellActivity
+import com.zw.new_demo1.device.SystemInfoActivity
 import kotlinx.android.synthetic.main.activity_launch.*
 import java.util.*
 
@@ -47,6 +49,9 @@ class LaunchActivity : AppCompatActivity(), View.OnClickListener {
         btn_ServiceActivity.setOnClickListener(this)
         btn_Demo1Activity.setOnClickListener(this)
         btn_SystemInfoActivity.setOnClickListener(this)
+        btn_ShellActivity.setOnClickListener(this)
+
+
 
         testlogFiles()
     }
@@ -92,6 +97,11 @@ class LaunchActivity : AppCompatActivity(), View.OnClickListener {
                 var i = Intent(this@LaunchActivity, SystemInfoActivity::class.java)
                 startActivity(i)
             }
+            R.id.btn_ShellActivity -> {
+                var i = Intent(this@LaunchActivity, ShellActivity::class.java)
+                startActivity(i)
+            }
+
         }
     }
 

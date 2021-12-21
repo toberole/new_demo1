@@ -21,7 +21,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.New_demo1">
-        <activity android:name=".activity1.SystemInfoActivity"></activity>
+        <activity android:name=".device.ShellActivity"></activity>
+        <activity android:name=".device.SystemInfoActivity" />
         <activity android:name=".activity1.SchedulerAcitvity" />
         <activity android:name=".activity1.Demo1Activity" />
         <activity
