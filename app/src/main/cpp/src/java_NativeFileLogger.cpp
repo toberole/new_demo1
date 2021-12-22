@@ -1,5 +1,6 @@
 #include "java_NativeFileLogger.h"
 #include "FileLogger.h"
+#include "log.h"
 
 /*
  * Class:     com_zw_new_demo1_util_NativeFileLogger

@@ -8,7 +8,11 @@
 extern "C" {
 #endif
 #undef com_zw_new_demo1_util_NativeFileLogger_ONE_DAY
-#define com_zw_new_demo1_util_NativeFileLogger_ONE_DAY 86400000i64
+#define com_zw_new_demo1_util_NativeFileLogger_ONE_DAY 86400000LL
+#undef com_zw_new_demo1_util_NativeFileLogger_MAX_SIZE
+#define com_zw_new_demo1_util_NativeFileLogger_MAX_SIZE 16777216LL
+#undef com_zw_new_demo1_util_NativeFileLogger_FLUSH_WHAT
+#define com_zw_new_demo1_util_NativeFileLogger_FLUSH_WHAT 1024L
 /*
  * Class:     com_zw_new_demo1_util_NativeFileLogger
  * Method:    native_init
@@ -23,7 +27,7 @@ JNIEXPORT jlong JNICALL Java_com_zw_new_1demo1_util_NativeFileLogger_native_1ini
  * Signature: (JLjava/lang/String;)V
  */
 JNIEXPORT void JNICALL Java_com_zw_new_1demo1_util_NativeFileLogger_native_1write
-        (JNIEnv *, jobject, jlong, jstring);
+(JNIEnv *, jobject, jlong, jstring);
 
 /*
  * Class:     com_zw_new_demo1_util_NativeFileLogger
@@ -31,7 +35,7 @@ JNIEXPORT void JNICALL Java_com_zw_new_1demo1_util_NativeFileLogger_native_1writ
  * Signature: (J)V
  */
 JNIEXPORT void JNICALL Java_com_zw_new_1demo1_util_NativeFileLogger_native_1flush
-        (JNIEnv *, jobject, jlong);
+(JNIEnv *, jobject, jlong);
 
 /*
  * Class:     com_zw_new_demo1_util_NativeFileLogger
@@ -39,8 +43,15 @@ JNIEXPORT void JNICALL Java_com_zw_new_1demo1_util_NativeFileLogger_native_1flus
  * Signature: (J)V
  */
 JNIEXPORT void JNICALL Java_com_zw_new_1demo1_util_NativeFileLogger_native_1close
-        (JNIEnv *, jobject, jlong);
+(JNIEnv *, jobject, jlong);
 
+/*
+ * Class:     com_zw_new_demo1_util_NativeFileLogger
+ * Method:    native_data
+ * Signature: (J[B)V
+ */
+JNIEXPORT void JNICALL Java_com_zw_new_1demo1_util_NativeFileLogger_native_1data
+(JNIEnv *, jobject, jlong, jbyteArray);
 
 #ifdef __cplusplus
 }

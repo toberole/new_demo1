@@ -156,6 +156,8 @@ public class NativeFileLogger {
 
     private native void native_close(long instance);
 
+    public native void native_data(long instance,byte[]arr);
+
     public static NativeFileLogger getInstance() {
         return NativeFileLoggerHolder.fileLogger;
     }

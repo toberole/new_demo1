@@ -13,7 +13,11 @@ import androidx.core.app.ActivityCompat
 import com.zw.new_demo1.activity1.*
 import com.zw.new_demo1.device.ShellActivity
 import com.zw.new_demo1.device.SystemInfoActivity
+import com.zw.new_demo1.util.FileLogger
+import com.zw.new_demo1.util.NativeFileLogger
 import kotlinx.android.synthetic.main.activity_launch.*
+import java.io.File
+import java.io.FileInputStream
 import java.util.*
 
 class LaunchActivity : AppCompatActivity(), View.OnClickListener {
@@ -103,6 +107,23 @@ class LaunchActivity : AppCompatActivity(), View.OnClickListener {
             }
 
         }
+    }
+
+    private fun testData() {
+        val path = "/storage/emulated/0/test_pic.data"
+        val file = File(path)
+        val len = file.length()
+        val data = ByteArray(len.toInt())
+        val fileInputStream = FileInputStream(file)
+        fileInputStream.read(data, 0, data.size)
+        fileInputStream.close()
+
+        for (i in 1..100){
+            var time = System.currentTimeMillis()
+            var v = NativeFileLogger.getInstance().native_data(0,data)
+            Log.i("-xxx","time: ${System.currentTimeMillis()-time}")
+        }
+
     }
 
     private fun testlogFiles() {
