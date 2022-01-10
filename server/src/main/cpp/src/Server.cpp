@@ -14,7 +14,7 @@ Server::Server(int port) : port(port) {
 
 int Server::start() {
     // socket(int __af, int __type, int __protocol)
-   socket()
+   //socket()
 }
 
 void Server::stop() {
