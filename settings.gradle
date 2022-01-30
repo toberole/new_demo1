@@ -1,3 +1,4 @@
+include ':multi-process'
 include ':server'
 include ':app'
 

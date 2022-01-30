@@ -54,6 +54,8 @@ class LaunchActivity : AppCompatActivity(), View.OnClickListener {
         btn_Demo1Activity.setOnClickListener(this)
         btn_SystemInfoActivity.setOnClickListener(this)
         btn_ShellActivity.setOnClickListener(this)
+        btn_J2V8Activity.setOnClickListener(this)
+        btn_MicroServiceActivity.setOnClickListener(this)
 
 
 
@@ -105,6 +107,14 @@ class LaunchActivity : AppCompatActivity(), View.OnClickListener {
                 var i = Intent(this@LaunchActivity, ShellActivity::class.java)
                 startActivity(i)
             }
+            R.id.btn_J2V8Activity -> {
+                var i = Intent(this@LaunchActivity, J2V8Activity::class.java)
+                startActivity(i)
+            }
+            R.id.btn_MicroServiceActivity -> {
+                var i = Intent(this@LaunchActivity, MicroServiceActivity::class.java)
+                startActivity(i)
+            }
 
         }
     }
@@ -118,10 +128,10 @@ class LaunchActivity : AppCompatActivity(), View.OnClickListener {
         fileInputStream.read(data, 0, data.size)
         fileInputStream.close()
 
-        for (i in 1..100){
+        for (i in 1..100) {
             var time = System.currentTimeMillis()
-            var v = NativeFileLogger.getInstance().native_data(0,data)
-            Log.i("-xxx","time: ${System.currentTimeMillis()-time}")
+            var v = NativeFileLogger.getInstance().native_data(0, data)
+            Log.i("-xxx", "time: ${System.currentTimeMillis() - time}")
         }
 
     }

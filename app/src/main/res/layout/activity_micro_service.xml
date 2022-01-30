@@ -5,26 +5,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".activity1.J2V8Activity">
+    tools:context=".activity1.MicroServiceActivity">
 
     <Button
-        android:id="@+id/btn_test1"
+        android:id="@+id/btn_collect"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="test1"
+        android:text="collect"
         android:textAllCaps="false" />
 
     <Button
-        android:id="@+id/btn_test2"
+        android:id="@+id/btn_comsume"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="test2"
+        android:text="comsume"
         android:textAllCaps="false" />
-    <Button
-        android:id="@+id/btn_test3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="test3"
-        android:textAllCaps="false" />
-
 </LinearLayout>

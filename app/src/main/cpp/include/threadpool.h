@@ -1,10 +1,13 @@
 #ifndef NEW_DEMO1_THREADPOOL_H
 #define NEW_DEMO1_THREADPOOL_H
+
 #include <pthread.h>
 
 #ifdef __cplusplus
-extern "C"{
+extern "C" {
 #endif
+
+#define NUMBER 5
 
 // 任务结构体
 typedef struct Task {

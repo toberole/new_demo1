@@ -1,6 +1,7 @@
 package com.zw.new_demo1;
 
 import android.content.SharedPreferences;
+import android.os.Bundle;
 import android.util.Log;
 
 public class Test {
@@ -9,6 +10,9 @@ public class Test {
     public void test() {
         SharedPreferences sharedPreferences = null;
         sharedPreferences.edit().apply();
+
+        Bundle bundle = new Bundle();
+        // bundle.putBinder("", );
     }
 
     private void test1() {

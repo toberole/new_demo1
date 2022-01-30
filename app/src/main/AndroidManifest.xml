@@ -21,7 +21,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.New_demo1">
-        <activity android:name=".activity1.J2V8Activity"></activity>
+        <activity android:name=".activity1.MicroServiceActivity"></activity>
+        <activity android:name=".activity1.J2V8Activity" />
         <activity android:name=".device.ShellActivity" />
         <activity android:name=".device.SystemInfoActivity" />
         <activity android:name=".activity1.SchedulerAcitvity" />
